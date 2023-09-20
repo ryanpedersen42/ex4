@@ -14,7 +14,7 @@ jobs:
           clientId: ${{ secrets.PORT_CLIENT_ID }}
           clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
           operation: UPSERT
-          identifier: ${{ github.repository }}
+          identifier: ex4
           title: ${{ github.repository }}
           blueprint: repository
           properties: |-
