@@ -17,6 +17,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Install jq
         uses: dcarbone/install-jq-action@v2.0.0
+      # - name: Run Ingestion
+      #   run:
+      #     shell: sh
+      #     working-directory: ./scripts
       - name: Ingest it all
         run: |
+          ls
+          chmod u+x ./ingest.sh
           sh ./ingest.sh
