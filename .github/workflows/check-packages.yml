@@ -1,5 +1,9 @@
 name: Check Packages
-on: [push]
+on: 
+  push:
+    branches:
+      - main
+
 jobs:
   Push-to-Port:
     runs-on: ubuntu-latest
