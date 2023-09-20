@@ -37,5 +37,5 @@ jobs:
           properties: |-
             {
               "uses_lodash_": true,
-              "uses_axios_": $AXIOS
+              "uses_axios_": ${{ env.AXIOS }}
             }
