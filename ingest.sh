@@ -34,5 +34,5 @@ EOF
     echo "$webhook_response"
 }
 
-converted_data=$(convert_package_json "$PATH_TO_PACKAGE_JSON_FILE")
+converted_data=$(convert_package_json ../"$PATH_TO_PACKAGE_JSON_FILE")
 echo "$converted_data"
