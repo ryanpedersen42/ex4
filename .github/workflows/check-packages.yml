@@ -25,6 +25,23 @@ jobs:
 
           echo $axios
           echo "AXIOS=$axios" >> $GITHUB_ENV
+      - name: Check Lodash
+        run: |
+          check_lodash_presence_deps=`cat package.json | jq .dependencies | jq keys`
+          check_lodash_presence_dev_deps=`cat package.json | jq .devDependencies | jq keys`
+
+          echo $check_lodash_presence_deps
+          echo $check_lodash_presence_dev_deps
+
+          if [[ $check_lodash_presence_deps[@] =~ "lodash" ]] || [[ $check_lodash_presence_dev_deps[@] =~ "lodash" ]];
+          then
+              lodash=true        
+          else
+              lodash=false
+          fi
+
+          echo $lodash
+          echo "LODASH=$lodash" >> $GITHUB_ENV
       - name: Port API 
         uses: port-labs/port-github-action@v1
         with:
@@ -36,6 +53,6 @@ jobs:
           blueprint: repository
           properties: |-
             {
-              "uses_lodash_": true,
+              "uses_lodash_": ${{ env.LODASH }},
               "uses_axios_": ${{ env.AXIOS }}
             }
