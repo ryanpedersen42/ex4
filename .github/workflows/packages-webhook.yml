@@ -19,4 +19,4 @@ jobs:
         uses: dcarbone/install-jq-action@v2.0.0
       - name: Ingest it all
         run: |
-          sh ingest.sh
+          sh ./ingest.sh
