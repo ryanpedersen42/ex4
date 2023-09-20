@@ -8,6 +8,23 @@ jobs:
         uses: actions/checkout@v4
       - name: Install jq
         uses: dcarbone/install-jq-action@v2.0.0
+      - name: Check Axios
+        run: |
+          check_axios_presence_deps=`cat package.json | jq .dependencies | jq keys`
+          check_axios_presence_dev_deps=`cat package.json | jq .devDependencies | jq keys`
+
+          echo $check_axios_presence_deps
+          echo $check_axios_presence_dev_deps
+
+          if [[ $check_axios_presence_deps[@] =~ "axios" ]] || [[ $check_axios_presence_dev_deps[@] =~ "axios" ]];
+          then
+              axios=true        
+          else
+              axios=false
+          fi
+
+          echo $axios
+          echo "AXIOS=$axios" >> $GITHUB_ENV
       - name: Port API 
         uses: port-labs/port-github-action@v1
         with:
