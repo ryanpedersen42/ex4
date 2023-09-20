@@ -6,7 +6,7 @@ on:
       - axios-only
 env:
   SERVICE_ID: ${{ vars.SERVICE_ID }}
-  PATH_TO_PACKAGE_JSON: ${{ vars.PATH_TO_PACKAGE_JSON }}
+  PATH_TO_PACKAGE_JSON_FILE: ${{ vars.PATH_TO_PACKAGE_JSON_FILE }}
   WEBHOOK_URL: ${{ vars.WEBHOOK_URL }}
 
 jobs:
