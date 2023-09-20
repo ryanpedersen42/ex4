@@ -8,8 +8,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Install jq
         uses: dcarbone/install-jq-action@v2.0.0
-      - name: Port API
-      - uses: port-labs/port-github-action@v1
+      - name: Port API 
+        uses: port-labs/port-github-action@v1
         with:
           clientId: ${{ secrets.PORT_CLIENT_ID }}
           clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
